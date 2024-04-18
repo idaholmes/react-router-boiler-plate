@@ -4,7 +4,10 @@ import { WatchListItem } from "../../Components/WatchListItem";
 
 export const WatchListPage = () => {
   const [watchListItems, setWatchListItems] = useState([]);
-  const BASE_URL = "https://66204a823bf790e070af7cfc.mockapi.io/week16/movies";
+  const MOVIES_BASE_URL =
+    "https://66204a823bf790e070af7cfc.mockapi.io/week16/movies";
+  const TV_SHOW_BASE_URL =
+    "https://66204a823bf790e070af7cfc.mockapi.io/week16/tvshows";
   const WATCHLIST_URL =
     "https://66204a823bf790e070af7cfc.mockapi.io/week16/watchlist";
 
@@ -22,7 +25,11 @@ export const WatchListPage = () => {
 
     try {
       await axios.delete(WATCHLIST_URL + `/${watchListItem.id}`);
-      await axios.post(BASE_URL, watchListItem);
+      if (watchListItem.isTVShow) {
+        await axios.post(TV_SHOW_BASE_URL, watchListItem);
+      } else {
+        await axios.post(MOVIES_BASE_URL, watchListItem);
+      }
       fetchWatchListItems();
     } catch (error) {
       console.error("Error removing from watch list:", error);

@@ -24,7 +24,7 @@ export const MoviesPage = () => {
       await axios.post(WATCHLIST_URL, movie);
       fetchMovies();
     } catch (error) {
-      console.error("Error deleting from watch list:", error);
+      console.error("Error adding movie to watch list:", error);
     }
   };
 

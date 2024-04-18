@@ -3,14 +3,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/fontawesome-free-solid";
 
 export const WatchListItem = ({ watchListItem, onRemoveFromWatchList }) => {
-  const { image, title, bio, imdbRating, addedToWatchList } = watchListItem;
+  const { image, title, bio, imdbRating } = watchListItem;
 
   return (
     <div className="text-center max-w-[425px]">
       <img src={image} alt="" className="mx-auto max-h-[400px] h-[100%]" />
       <h3 className="text-xl">{title} </h3>
       <p className="text-sm">{bio}</p>
-      <span>{imdbRating}</span>
+      <span>IMDb Rating: {imdbRating}</span>
       <button
         className="block mx-auto"
         onClick={(event) =>

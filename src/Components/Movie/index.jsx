@@ -9,7 +9,7 @@ export const Movie = ({ movie, onAddToWatchList }) => {
       <img src={image} alt="" className="mx-auto max-h-[400px] h-[100%]" />
       <h3 className="text-xl">{title} </h3>
       <p className="text-sm">{bio}</p>
-      <span>{imdbRating}</span>
+      <span>IMDb Rating: {imdbRating}</span>
       <button
         className="block mx-auto"
         onClick={(event) =>
