@@ -2,7 +2,9 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/fontawesome-free-solid";
 
+// deconstruct props so we dont have to do props. in front of everything
 export const TVShow = ({ tvShow, onAddToWatchList }) => {
+  // decontruct tvShow key value pairs for eadsy use later
   const { image, title, bio, imdbRating } = tvShow;
 
   return (
@@ -14,6 +16,7 @@ export const TVShow = ({ tvShow, onAddToWatchList }) => {
       <button
         className="block mx-auto"
         onClick={(event) =>
+          // use spread operator to flip the addedToWatchList boolean and send up to parent via onAddToWatchList prop
           onAddToWatchList(event, {
             ...tvShow,
             addedToWatchList: !tvShow.addedToWatchList,

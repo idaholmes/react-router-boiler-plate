@@ -3,10 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 
 export const CustomWatchListItem = ({ item, onDelete, onEditSubmit }) => {
+  // set initial editing state to false so edit form is hidden on page load
   const [isEditing, setIsEditing] = useState(false);
+  // set the value of the item being edited is the title for quick editing
   const [editValue, setEditValue] = useState(item.title);
 
   const handleEditChange = (event) => {
+    // onChange, decontruct the edit value out of the event and set it to the local state variable
     const { value } = event.target;
     setEditValue(value);
   };
@@ -25,6 +28,7 @@ export const CustomWatchListItem = ({ item, onDelete, onEditSubmit }) => {
           className="flex flex-col items-center justify-center mt-8"
           onSubmit={(event) =>
             // pass event and newWatchListItemData up to the parent component via the onEditSubmit prop
+            // spread operator makes sure only the title gets altered
             onEditSubmit(event, {
               ...item,
               title: editValue,

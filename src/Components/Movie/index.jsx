@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/fontawesome-free-solid";
 
 export const Movie = ({ movie, onAddToWatchList }) => {
+  // decontruct key value pairs out of movie prop for easy use
   const { image, title, bio, imdbRating } = movie;
   return (
     <div className="text-center max-w-[425px]">
@@ -13,6 +14,7 @@ export const Movie = ({ movie, onAddToWatchList }) => {
       <button
         className="block mx-auto"
         onClick={(event) =>
+          // use spread operator to only flip addedToWatchList boolean, and pass the event back up to the parent compoent
           onAddToWatchList(event, {
             ...movie,
             addedToWatchList: !movie.addedToWatchList,

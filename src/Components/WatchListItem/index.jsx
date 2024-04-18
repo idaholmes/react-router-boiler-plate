@@ -14,6 +14,7 @@ export const WatchListItem = ({ watchListItem, onRemoveFromWatchList }) => {
       <button
         className="block mx-auto"
         onClick={(event) =>
+          // use spread operator to flip the addedToWatchList boolean and send up to parent via onRemoveFromWatchList prop
           onRemoveFromWatchList(event, {
             ...watchListItem,
             addedToWatchList: !watchListItem.addedToWatchList,

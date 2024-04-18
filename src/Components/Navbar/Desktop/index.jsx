@@ -2,7 +2,8 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faVideo } from "@fortawesome/fontawesome-free-solid";
 
-export const NavbarDesktop = ({ className }) => {
+export const NavbarDesktop = () => {
+  // this navbar only gets displayed on desktop via the tailwind classes it has been provided
   return (
     <nav className="hidden md:block">
       <div className="flex justify-between p-6 items-center">

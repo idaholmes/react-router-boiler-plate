@@ -1,16 +1,20 @@
 import React, { useState } from "react";
 
 export const CustomWatchListForm = ({ onSubmit }) => {
+  // set title of new watch list item to empty string
   const [title, setTitle] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    // onSubmit, pass the event back up to the parent via props and set title back to an empty string
     onSubmit(title);
     setTitle("");
   };
 
   const handleChange = (event) => {
-    setTitle(event.target.value);
+    // as the user types, deconstruct value out of the event and set it to the local state variable
+    const { value } = event.target;
+    setTitle(value);
   };
 
   return (
