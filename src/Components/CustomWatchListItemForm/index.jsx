@@ -18,7 +18,7 @@ export const CustomWatchListForm = ({ onSubmit }) => {
       onSubmit={handleSubmit}
       className="flex flex-col items-center justify-center mt-8"
     >
-      <label className="mb-0 ">Enter a custom watch list item title:</label>
+      <label className="mb-4">Enter a custom watch list item title:</label>
       <input
         type="text"
         value={title}
@@ -29,7 +29,7 @@ export const CustomWatchListForm = ({ onSubmit }) => {
       />
       <button
         type="submit"
-        className="bg-blue-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-600 transition-colors duration-300"
+        className="bg-blue-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-600 transition-colors duration-300 mt-4"
       >
         Submit
       </button>

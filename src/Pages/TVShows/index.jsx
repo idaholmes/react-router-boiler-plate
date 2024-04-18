@@ -35,7 +35,7 @@ export const TVShowsPage = () => {
 
   return (
     <section className="text-center">
-      <h1>Welcome to the TV Shows Page!</h1>
+      <h1 className="text-3xl mb-8">Welcome to the TV Shows Page!</h1>
       <div className="flex flex-wrap justify-evenly px-4">
         {tvShows.map((tvShow) => (
           <TVShow

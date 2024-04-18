@@ -7,13 +7,13 @@ import { CustomWatchListItem } from "../../Components/CustomWatchListItem";
 export const WatchListPage = () => {
   const [watchListItems, setWatchListItems] = useState([]);
   const [customWatchListItems, setCustomWatchListItems] = useState([]);
+
   const MOVIES_BASE_URL =
     "https://66204a823bf790e070af7cfc.mockapi.io/week16/movies";
   const TV_SHOW_BASE_URL =
     "https://66204a823bf790e070af7cfc.mockapi.io/week16/tvshows";
   const WATCHLIST_URL =
     "https://66204a823bf790e070af7cfc.mockapi.io/week16/watchlist";
-
   const CUSTOM_WATCHLIST_ITEM_URL =
     "https://66204a823bf790e070af7cfc.mockapi.io/week16/customWatchListItem";
 
@@ -59,6 +59,25 @@ export const WatchListPage = () => {
     }
   };
 
+  const handleEditCustomWatchListItem = async (event, item) => {
+    event.preventDefault();
+    try {
+      await axios.put(CUSTOM_WATCHLIST_ITEM_URL + `/${item.id}`, item);
+      fetchCustomWatchListItems();
+    } catch (error) {
+      console.error("Error editing custom watchlist item:", error);
+    }
+  };
+
+  const handleDeleteCustomWatchListItem = async (itemId) => {
+    try {
+      await axios.delete(CUSTOM_WATCHLIST_ITEM_URL + `/${itemId}`);
+      fetchCustomWatchListItems();
+    } catch (error) {
+      console.error("Error removing from custom watch list:", error);
+    }
+  };
+
   useEffect(() => {
     fetchWatchListItems();
     fetchCustomWatchListItems();
@@ -68,8 +87,7 @@ export const WatchListPage = () => {
 
   return (
     <section className="text-center">
-      <h2>Hello from the watchlist page</h2>
-      <CustomWatchListForm onSubmit={handleCreateCustomWatchListItem} />
+      <h1 className="text-3xl mb-8">Welcome to the watchlist page!</h1>
       <div className="flex flex-wrap justify-evenly px-4">
         {watchListItems?.map((watchListItem) => (
           <WatchListItem
@@ -78,9 +96,20 @@ export const WatchListPage = () => {
             key={watchListItem.title}
           />
         ))}
-        {customWatchListItems.map((item) => (
-          <CustomWatchListItem item={item} />
-        ))}
+      </div>
+      <div className="">
+        <h2 className="text-2xl">Custom Watchlist Items</h2>
+        <CustomWatchListForm onSubmit={handleCreateCustomWatchListItem} />
+        <div>
+          {customWatchListItems.map((item) => (
+            <CustomWatchListItem
+              item={item}
+              key={item.title}
+              onEditSubmit={handleEditCustomWatchListItem}
+              onDelete={handleDeleteCustomWatchListItem}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
