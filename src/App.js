@@ -2,9 +2,9 @@ import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { HomePage } from "./Pages/Home/HomePage";
 import { MoviesPage } from "./Pages/Movies/MoviesPage";
-import { TVShowsPage } from "./Pages/TVShows/TVShows";
+import { TVShowsPage } from "./Pages/TVShows/TVShowsPage";
 import { Navbar } from "./Components/Navbar/Navbar";
-import { WatchListPage } from "./Pages/Watchlist/Watchlist";
+import { WatchListPage } from "./Pages/WatchList/WatchlistPage";
 
 function App() {
   return (

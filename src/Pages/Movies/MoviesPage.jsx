@@ -5,6 +5,8 @@ import { Movie } from "../../Components/Movie/Movie";
 export const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
   const BASE_URL = "https://66204a823bf790e070af7cfc.mockapi.io/week16/movies";
+  const WATCHLIST_URL =
+    "https://66204a823bf790e070af7cfc.mockapi.io/week16/watchlist";
 
   const fetchMovies = async () => {
     try {
@@ -12,6 +14,17 @@ export const MoviesPage = () => {
       setMovies(data);
     } catch (error) {
       console.error("Error fetching movies:", error);
+    }
+  };
+
+  const handleAddToWatchList = async (event, movie) => {
+    event.preventDefault();
+    try {
+      await axios.delete(BASE_URL + `/${movie.id}`);
+      await axios.post(WATCHLIST_URL, movie);
+      fetchMovies();
+    } catch (error) {
+      console.error("Error deleting from watch list:", error);
     }
   };
 
@@ -23,14 +36,11 @@ export const MoviesPage = () => {
     <section className="text-center">
       <h1>Welcome to the Movies Page!</h1>
       <div className="flex flex-wrap justify-evenly px-4">
-        {movies.map(({ title, image, bio, imdbRating, addedToWatchList }) => (
+        {movies?.map((movie) => (
           <Movie
-            title={title}
-            image={image}
-            bio={bio}
-            imdbRating={imdbRating}
-            addedToWatchList={addedToWatchList}
-            key={title}
+            movie={movie}
+            onAddToWatchList={handleAddToWatchList}
+            key={movie.title}
           />
         ))}
       </div>

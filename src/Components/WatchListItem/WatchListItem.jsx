@@ -1,7 +1,8 @@
 import React from "react";
 
-export const Movie = ({ movie, onAddToWatchList }) => {
-  const { image, title, bio, imdbRating } = movie;
+export const WatchListItem = ({ watchListItem, onRemoveFromWatchList }) => {
+  const { image, title, bio, imdbRating, addedToWatchList } = watchListItem;
+
   return (
     <div className="text-center max-w-[425px]">
       <img src={image} alt="" className="mx-auto max-h-[400px] h-[100%]" />
@@ -11,13 +12,13 @@ export const Movie = ({ movie, onAddToWatchList }) => {
       <button
         className="block mx-auto"
         onClick={(event) =>
-          onAddToWatchList(event, {
-            ...movie,
-            addedToWatchList: !movie.addedToWatchList,
+          onRemoveFromWatchList(event, {
+            ...watchListItem,
+            addedToWatchList: !watchListItem.addedToWatchList,
           })
         }
       >
-        + Add to watchlist
+        {addedToWatchList ? "Remove from watchlist" : "Add to watchlist"}
       </button>
     </div>
   );
