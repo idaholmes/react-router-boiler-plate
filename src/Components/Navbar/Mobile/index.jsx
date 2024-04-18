@@ -26,9 +26,6 @@ export const NavBarMobile = () => {
       {menuOpen && (
         <ul className="flex flex-col items-center px-6 pb-6">
           <li className="mt-4 text-lg">
-            <a href="/">Home</a>
-          </li>
-          <li className="mt-4 text-lg">
             <a href="/movies">Movies</a>
           </li>
           <li className="mt-4 text-lg">

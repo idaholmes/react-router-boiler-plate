@@ -12,9 +12,6 @@ export const NavbarDesktop = ({ className }) => {
         </div>
         <ul className="flex justify-end">
           <li className="ml-6 text-lg">
-            <a href="/">Home</a>
-          </li>
-          <li className="ml-6 text-lg">
             <a href="/movies">Movies</a>
           </li>
           <li className="ml-6 text-lg">
