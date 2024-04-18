@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Movie } from "../../Components/Movie/Movie";
 
 export const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
@@ -18,10 +19,21 @@ export const MoviesPage = () => {
     fetchMovies();
   }, []);
 
-  console.log(movies);
   return (
-    <section>
+    <section className="text-center">
       <h1>Welcome to the Movies Page!</h1>
+      <div className="flex flex-wrap justify-evenly px-4">
+        {movies.map(({ title, image, bio, imdbRating, addedToWatchList }) => (
+          <Movie
+            title={title}
+            image={image}
+            bio={bio}
+            imdbRating={imdbRating}
+            addedToWatchList={addedToWatchList}
+            key={title}
+          />
+        ))}
+      </div>
     </section>
   );
 };

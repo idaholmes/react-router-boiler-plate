@@ -1,27 +1,26 @@
 import React from "react";
-import "./Navbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faVideo } from "@fortawesome/fontawesome-free-solid";
 
 export const Navbar = () => {
   return (
     <nav>
-      <div className="navbar-container">
-        <div className="logo-container">
-          <FontAwesomeIcon icon={faVideo} alt="Logo" className="logo" />
-          <h2>Mov-ease</h2>
+      <div className="flex justify-between p-6 items-center">
+        <div className="flex items-center">
+          <FontAwesomeIcon icon={faVideo} alt="Logo" className="mr-6" />
+          <h2 className="text-xl">Mov-ease</h2>
         </div>
-        <ul className="nav-links">
-          <li>
+        <ul className="flex justify-end">
+          <li className="ml-6 text-lg">
             <a href="/">Home</a>
           </li>
-          <li>
+          <li className="ml-6 text-lg">
             <a href="/movies">Movies</a>
           </li>
-          <li>
+          <li className="ml-6 text-lg">
             <a href="/tv">TV</a>
           </li>
-          <li>
+          <li className="ml-6 text-lg">
             <a href="/watchlist">Watchlist</a>
           </li>
         </ul>
