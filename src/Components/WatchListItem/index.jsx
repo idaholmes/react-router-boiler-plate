@@ -1,4 +1,6 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/fontawesome-free-solid";
 
 export const WatchListItem = ({ watchListItem, onRemoveFromWatchList }) => {
   const { image, title, bio, imdbRating, addedToWatchList } = watchListItem;
@@ -18,7 +20,8 @@ export const WatchListItem = ({ watchListItem, onRemoveFromWatchList }) => {
           })
         }
       >
-        {addedToWatchList ? "Remove from watchlist" : "Add to watchlist"}
+        <FontAwesomeIcon icon={faTrash} alt="Remove" className="mr-2" />
+        Remove from watchlist
       </button>
     </div>
   );

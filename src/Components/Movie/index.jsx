@@ -1,4 +1,6 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/fontawesome-free-solid";
 
 export const Movie = ({ movie, onAddToWatchList }) => {
   const { image, title, bio, imdbRating } = movie;
@@ -17,7 +19,8 @@ export const Movie = ({ movie, onAddToWatchList }) => {
           })
         }
       >
-        + Add to watchlist
+        <FontAwesomeIcon icon={faPlus} alt="Add" className="mr-2" />
+        Add to WatchList
       </button>
     </div>
   );
