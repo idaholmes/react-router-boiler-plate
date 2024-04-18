@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { HomePage } from "./Pages/Home/HomePage";
-import { MoviesPage } from "./Pages/Movies/MoviesPage";
-import { TVShowsPage } from "./Pages/TVShows/TVShowsPage";
-import { Navbar } from "./Components/Navbar/Navbar";
-import { WatchListPage } from "./Pages/WatchList/WatchlistPage";
+import { HomePage } from "./Pages/Home";
+import { MoviesPage } from "./Pages/Movies";
+import { TVShowsPage } from "./Pages/TVShows";
+import { WatchListPage } from "./Pages/WatchList";
+import { Navbar } from "./Components/Navbar";
 
 function App() {
   return (

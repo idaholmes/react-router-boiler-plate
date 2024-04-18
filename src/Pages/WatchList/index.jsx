@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { WatchListItem } from "../../Components/WatchListItem/WatchListItem";
+import { WatchListItem } from "../../Components/WatchListItem";
 
 export const WatchListPage = () => {
   const [watchListItems, setWatchListItems] = useState([]);

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { TVShow } from "../../Components/TVShow/TVShow";
+import { TVShow } from "../../Components/TVShow";
 
 export const TVShowsPage = () => {
   const [tvShows, setTVShows] = useState([]);

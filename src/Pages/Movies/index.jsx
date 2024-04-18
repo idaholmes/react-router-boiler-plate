@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Movie } from "../../Components/Movie/Movie";
+import { Movie } from "../../Components/Movie";
 
 export const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
