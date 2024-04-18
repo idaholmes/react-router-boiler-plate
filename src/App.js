@@ -4,12 +4,12 @@ import { HomePage } from "./Pages/Home";
 import { MoviesPage } from "./Pages/Movies";
 import { TVShowsPage } from "./Pages/TVShows";
 import { WatchListPage } from "./Pages/WatchList";
-import { Navbar } from "./Components/Navbar";
+import { NavBar } from "./Components/Navbar";
 
 function App() {
   return (
     <Router>
-      <Navbar />
+      <NavBar />
       <Route path="/" exact component={HomePage} />
       <Route path="/movies" component={MoviesPage} />
       <Route path="/tv" component={TVShowsPage} />

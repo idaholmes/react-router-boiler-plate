@@ -22,7 +22,6 @@ export const WatchListPage = () => {
 
   const handleRemoveFromWatchList = async (event, watchListItem) => {
     event.preventDefault();
-
     try {
       await axios.delete(WATCHLIST_URL + `/${watchListItem.id}`);
       if (watchListItem.isTVShow) {
